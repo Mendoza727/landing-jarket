@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarkitek LLC - Construcción y Remodelación en Miami, Florida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            DEFAULT: '#0a1858',
+                            'light': '#1a2a6c',
+                            'dark': '#050d33'
+                        },
+                        'gold': {
+                            DEFAULT: '#d4af37',
+                            'light': '#e6c860',
+                            'dark': '#b39429'
+                        },
+                        'light-gray': '#f8f9fa',
+                        'dark-gray': '#333333',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+
+        .wave-divider-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+            transform: rotateY(180deg);
+        }
+
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .service-card:hover .service-icon {
+            transform: translateY(-10px);
+        }
+
+        .service-card:hover .service-title {
+            color: #d4af37;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 24, 88, 0) 0%, rgba(10, 24, 88, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .wave-divider svg,
+            .wave-divider-top svg {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light-gray text-dark-gray font-sans">
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-primary" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="assets/logo3.png" alt="Jarkitek LLC Logo"
+                        class="h-10 sm:h-12 md:h-14">
+                    <p class="text-gold-light italic text-sm md:text-lg ml-2 md:ml-4 hidden sm:block">Construyendo
+                        confianza, edificando el futuro.</p>
+                </div>
+                <nav class="hidden lg:block">
+                    <ul class="flex space-x-6 xl:space-x-8">
+                        <li><a href="#inicio"
+                                class="text-white hover:text-gold transition duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bg-gold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Inicio</a>
+                        </li>
+                        <li><a href="#servicios"
+                                class="text-white hover:text-gold transition duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bg-gold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Servicios</a>
+                        </li>
+                        <li><a href="#nosotros"
+                                class="text-white hover:text-gold transition duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bg-gold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Nosotros</a>
+                        </li>
+                        <li><a href="#proyectos"
+                                class="text-white hover:text-gold transition duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bg-gold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Proyectos</a>
+                        </li>
+                        <li><a href="#contacto"
+                                class="text-white hover:text-gold transition duration-300 font-medium relative after:absolute after:w-0 after:h-0.5 after:bg-gold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="#contacto"
+                        class="bg-gold hover:bg-gold-light text-primary font-bold py-2 px-4 md:py-2.5 md:px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg flex items-center text-sm md:text-base">
+                        <i class="fas fa-phone-alt mr-2"></i>Contáctenos
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary-dark absolute w-full">
+            <div class="container mx-auto px-4 py-4">
+                <ul class="flex flex-col space-y-3">
+                    <li><a href="#inicio"
+                            class="text-white hover:text-gold transition duration-300 block py-2 px-4 rounded-lg hover:bg-primary-light">Inicio</a>
+                    </li>
+                    <li><a href="#servicios"
+                            class="text-white hover:text-gold transition duration-300 block py-2 px-4 rounded-lg hover:bg-primary-light">Servicios</a>
+                    </li>
+                    <li><a href="#nosotros"
+                            class="text-white hover:text-gold transition duration-300 block py-2 px-4 rounded-lg hover:bg-primary-light">Nosotros</a>
+                    </li>
+                    <li><a href="#proyectos"
+                            class="text-white hover:text-gold transition duration-300 block py-2 px-4 rounded-lg hover:bg-primary-light">Proyectos</a>
+                    </li>
+                    <li><a href="#contacto"
+                            class="text-white hover:text-gold transition duration-300 block py-2 px-4 rounded-lg hover:bg-primary-light">Contacto</a>
+                    </li>
+                </ul>
+                <div class="mt-4">
+                    <a href="#contacto"
+                        class="bg-gold hover:bg-gold-light text-primary font-bold py-2.5 px-6 rounded-full transition duration-300 block text-center">
+                        <i class="fas fa-phone-alt mr-2"></i>Contáctenos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio"
+        class="relative pt-24 bg-gradient-to-r from-primary-dark via-primary to-primary-light overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative mb-4 inline-block">
+                        <span
+                            class="absolute -left-2 -top-2 sm:-left-3 sm:-top-3 w-8 sm:w-12 h-8 sm:h-12 border-t-2 sm:border-t-4 border-l-2 sm:border-l-4 border-gold"></span>
+                        <span
+                            class="bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-3 sm:px-4 rounded-r-full">+7
+                            AÑOS DE EXPERIENCIA</span>
+                    </div>
+                    <h1
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight text-shadow">
+                        Expertos en <span class="text-gold">Construcción</span> y <span
+                            class="text-gold">Remodelación</span>
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed">Con más de 7
+                        años de experiencia, Jarkitek LLC ofrece servicios profesionales de construcción y remodelación
+                        en Miami y toda Florida. Contamos con licencia de construcción y un equipo de expertos
+                        comprometidos con la calidad.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contacto"
+                            class="inline-block bg-gold hover:bg-gold-light text-primary font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                            <i class="fas fa-clipboard-list mr-2"></i>Solicitar Presupuesto
+                        </a>
+                        <a href="#proyectos"
+                            class="inline-block bg-transparent border-2 border-white hover:border-gold text-white hover:text-gold font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 text-sm sm:text-base">
+                            <i class="fas fa-images mr-2"></i>Ver Proyectos
+                        </a>
+                    </div>
+                    <div class="mt-8 sm:mt-12 flex items-center space-x-4 sm:space-x-6">
+                        <div class="flex -space-x-3 sm:-space-x-4">
+                            <img src="https://placehold.co/50x50" alt="Cliente"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+                            <img src="https://placehold.co/50x50" alt="Cliente"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+                            <img src="https://placehold.co/50x50" alt="Cliente"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white bg-gold flex items-center justify-center text-primary font-bold text-sm sm:text-base">
+                                +50</div>
+                        </div>
+                        <div>
+                            <div class="text-gold font-bold text-sm sm:text-base">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-white text-xs sm:text-sm">Clientes satisfechos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold rounded-full opacity-20 animate-float">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-gold rounded-full opacity-20 animate-float"
+                        style="animation-delay: 1s;"></div>
+                    <div
+                        class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://placehold.co/600x800" alt="Proyecto Destacado" class="w-full h-auto">
+                    </div>
+                    <div
+                        class="absolute bottom-12 -left-12 bg-white p-4 rounded-lg shadow-xl transform -rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-certificate text-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Licencia Profesional</h4>
+                                <p class="text-gray-600 text-sm">CGC123456</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="#ffffff">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 sm:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-gold"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                        <i class="fas fa-medal text-gold text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-primary text-center mb-2 sm:mb-3">Calidad Garantizada
+                    </h3>
+                    <p class="text-gray-600 text-center text-sm sm:text-base">Comprometidos con la excelencia en cada
+                        proyecto que realizamos.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-gold"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                        <i class="fas fa-tools text-gold text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-primary text-center mb-2 sm:mb-3">Equipo Profesional
+                    </h3>
+                    <p class="text-gray-600 text-center text-sm sm:text-base">Expertos calificados con amplia
+                        experiencia en el sector.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-gold"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                        <i class="fas fa-clock text-gold text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-primary text-center mb-2 sm:mb-3">Puntualidad</h3>
+                    <p class="text-gray-600 text-center text-sm sm:text-base">Cumplimos con los plazos establecidos en
+                        cada proyecto.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-gold"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                        <i class="fas fa-hand-holding-usd text-gold text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-primary text-center mb-2 sm:mb-3">Precios Competitivos
+                    </h3>
+                    <p class="text-gray-600 text-center text-sm sm:text-base">Ofrecemos la mejor relación calidad-precio
+                        del mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-16 sm:py-20 bg-light-gray relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">Lo que
+                    ofrecemos</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4">Nuestros
+                    Servicios</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gold mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Ofrecemos soluciones
+                    integrales para todas sus necesidades de construcción y remodelación.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+                <div class="service-card bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-500 hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 sm:h-56 md:h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Construcción Residencial"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-4 sm:p-6">
+                            <span
+                                class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-1 sm:mb-2">Residencial</span>
+                            <h3
+                                class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2 service-title transition duration-300">
+                                Construcción Residencial</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 -mt-10 sm:-mt-14 ml-auto mr-4 sm:mr-6 border-4 border-white shadow-lg service-icon transition-transform duration-300 relative z-20">
+                            <i class="fas fa-home text-gold text-lg sm:text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Construcción de viviendas nuevas con
+                            diseños personalizados y materiales de alta calidad que cumplen con los estándares más
+                            exigentes.</p>
+                        <a href="#contacto"
+                            class="inline-flex items-center text-gold hover:text-primary-light font-medium transition duration-300 text-sm sm:text-base">
+                            Más información <i
+                                class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-500 hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 sm:h-56 md:h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Remodelación Interior"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-4 sm:p-6">
+                            <span
+                                class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-1 sm:mb-2">Interior</span>
+                            <h3
+                                class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2 service-title transition duration-300">
+                                Remodelación Interior</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 -mt-10 sm:-mt-14 ml-auto mr-4 sm:mr-6 border-4 border-white shadow-lg service-icon transition-transform duration-300 relative z-20">
+                            <i class="fas fa-paint-roller text-gold text-lg sm:text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Transformamos espacios interiores con
+                            remodelaciones que combinan funcionalidad y estética para mejorar su hogar o negocio.</p>
+                        <a href="#contacto"
+                            class="inline-flex items-center text-gold hover:text-primary-light font-medium transition duration-300 text-sm sm:text-base">
+                            Más información <i
+                                class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-500 hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 sm:h-56 md:h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Construcción Comercial"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-4 sm:p-6">
+                            <span
+                                class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-1 sm:mb-2">Comercial</span>
+                            <h3
+                                class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2 service-title transition duration-300">
+                                Construcción Comercial</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <div
+                            class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-6 -mt-10 sm:-mt-14 ml-auto mr-4 sm:mr-6 border-4 border-white shadow-lg service-icon transition-transform duration-300 relative z-20">
+                            <i class="fas fa-building text-gold text-lg sm:text-xl"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Desarrollamos proyectos comerciales
+                            eficientes, desde oficinas hasta locales comerciales, ajustándonos a sus necesidades y
+                            presupuesto.</p>
+                        <a href="#contacto"
+                            class="inline-flex items-center text-gold hover:text-primary-light font-medium transition duration-300 text-sm sm:text-base">
+                            Más información <i
+                                class="fas fa-long-arrow-alt-right ml-2 transition-transform duration-300 group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 sm:mt-12" data-aos="fade-up">
+                <a href="#contacto"
+                    class="inline-block bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                    <i class="fas fa-th-list mr-2"></i>Ver Todos los Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-primary opacity-5 rounded-l-full"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div
+                        class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-20 sm:w-32 h-20 sm:h-32 bg-gold opacity-10 rounded-full">
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-20 sm:w-32 h-20 sm:h-32 bg-primary opacity-10 rounded-full">
+                    </div>
+                    <img src="https://placehold.co/600x800" alt="Equipo Jarkitek"
+                        class="w-full h-auto rounded-2xl shadow-2xl relative z-10">
+                    <div
+                        class="absolute -bottom-6 sm:-bottom-8 right-4 sm:right-8 bg-gold text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-xl z-20 transform rotate-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-award text-2xl sm:text-3xl mr-2 sm:mr-3"></i>
+                            <div>
+                                <span class="block text-xs sm:text-sm">EXPERIENCIA</span>
+                                <span class="text-xl sm:text-2xl font-bold">+7 AÑOS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">Conozca nuestra
+                        historia</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4 sm:mb-6">
+                        Sobre Jarkitek LLC</h2>
+                    <div class="w-16 sm:w-20 h-1 bg-gold mb-6 sm:mb-8"></div>
+                    <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">Somos una empresa de construcción y
+                        remodelación establecida en Miami, Florida, con más de 7 años de experiencia en el sector.
+                        Nuestra misión es proporcionar servicios de alta calidad que superen las expectativas de
+                        nuestros clientes.</p>
+                    <p class="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">En Jarkitek LLC nos enorgullecemos de
+                        nuestro trabajo meticuloso, atención al detalle y compromiso con la excelencia. Contamos con un
+                        equipo de profesionales altamente calificados y disponemos de todas las licencias necesarias
+                        para operar en Florida.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
+                        <div class="flex items-center p-3 sm:p-4 bg-light-gray rounded-lg shadow-md">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-certificate text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm sm:text-base">Licencia Profesional</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">CGC123456</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 sm:p-4 bg-light-gray rounded-lg shadow-md">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-users text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm sm:text-base">Equipo Experto</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">Profesionales calificados</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 sm:p-4 bg-light-gray rounded-lg shadow-md">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-check-circle text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm sm:text-base">Garantía de Calidad</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">En cada proyecto</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 sm:p-4 bg-light-gray rounded-lg shadow-md">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-handshake text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-sm sm:text-base">Servicio Personalizado</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">Atención individualizada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 sm:mt-10">
+                        <a href="#contacto"
+                            class="inline-block bg-gold hover:bg-gold-light text-primary font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                            <i class="fas fa-phone-alt mr-2"></i>Contáctenos Hoy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="py-12 sm:py-16 bg-primary relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+                <div class="p-4 sm:p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-building text-gold text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 counter">150</h3>
+                    <p class="text-gold uppercase tracking-wider font-medium text-xs sm:text-sm">Proyectos Completados
+                    </p>
+                </div>
+
+                <div class="p-4 sm:p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-users text-gold text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 counter">120</h3>
+                    <p class="text-gold uppercase tracking-wider font-medium text-xs sm:text-sm">Clientes Satisfechos
+                    </p>
+                </div>
+
+                <div class="p-4 sm:p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-hard-hat text-gold text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 counter">25</h3>
+                    <p class="text-gold uppercase tracking-wider font-medium text-xs sm:text-sm">Profesionales</p>
+                </div>
+
+                <div class="p-4 sm:p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-award text-gold text-2xl sm:text-3xl"></i>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 counter">7</h3>
+                    <p class="text-gold uppercase tracking-wider font-medium text-xs sm:text-sm">Años de Experiencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-16 sm:py-20 bg-light-gray relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">Nuestro
+                    portafolio</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4">Proyectos
+                    Destacados</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gold mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Explore algunos de nuestros
+                    trabajos más recientes en Miami y Florida.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="project-card relative rounded-xl overflow-hidden shadow-xl group h-64 sm:h-72 md:h-80"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://placehold.co/500x700" alt="Residencia Moderna en Coral Gables"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-70"></div>
+                    <div
+                        class="project-content absolute bottom-0 left-0 w-full p-4 sm:p-6 transform translate-y-8 opacity-0 transition-all duration-500 z-10">
+                        <span
+                            class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-2 sm:mb-3">Residencial</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Residencia Moderna en Coral
+                            Gables</h3>
+                        <p class="text-white/90 mb-3 sm:mb-4 text-sm sm:text-base">Construcción completa de vivienda
+                            unifamiliar con diseño contemporáneo y acabados de lujo.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-gold hover:text-white font-medium transition duration-300 text-sm sm:text-base">
+                            Ver detalles <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card relative rounded-xl overflow-hidden shadow-xl group h-64 sm:h-72 md:h-80"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://placehold.co/500x700" alt="Remodelación Comercial en Brickell"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-70"></div>
+                    <div
+                        class="project-content absolute bottom-0 left-0 w-full p-4 sm:p-6 transform translate-y-8 opacity-0 transition-all duration-500 z-10">
+                        <span
+                            class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-2 sm:mb-3">Comercial</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Remodelación Comercial en
+                            Brickell</h3>
+                        <p class="text-white/90 mb-3 sm:mb-4 text-sm sm:text-base">Renovación integral de espacio
+                            comercial con diseño innovador y materiales sostenibles.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-gold hover:text-white font-medium transition duration-300 text-sm sm:text-base">
+                            Ver detalles <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card relative rounded-xl overflow-hidden shadow-xl group h-64 sm:h-72 md:h-80"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://placehold.co/500x700" alt="Ampliación Residencial en Miami Beach"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark to-transparent opacity-70"></div>
+                    <div
+                        class="project-content absolute bottom-0 left-0 w-full p-4 sm:p-6 transform translate-y-8 opacity-0 transition-all duration-500 z-10">
+                        <span
+                            class="inline-block bg-gold text-primary text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full mb-2 sm:mb-3">Ampliación</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Ampliación Residencial en
+                            Miami Beach</h3>
+                        <p class="text-white/90 mb-3 sm:mb-4 text-sm sm:text-base">Ampliación y renovación de vivienda
+                            existente, añadiendo espacio funcional y modernizando la estructura.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-gold hover:text-white font-medium transition duration-300 text-sm sm:text-base">
+                            Ver detalles <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 sm:mt-12" data-aos="fade-up">
+                <a href="#"
+                    class="inline-block bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                    <i class="fas fa-th-large mr-2"></i>Ver Todos los Proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section
+        class="py-16 sm:py-20 bg-gradient-to-r from-primary-dark via-primary to-primary-light relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">Testimonios</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">Lo Que Dicen
+                    Nuestros Clientes</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gold mx-auto mb-4 sm:mb-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="text-gold mb-3 sm:mb-4 text-sm sm:text-base">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">"Jarkitek LLC transformó nuestra
+                        casa en el hogar de nuestros sueños. Su atención al detalle y profesionalismo fueron
+                        excepcionales. Altamente recomendados."</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold mr-3 sm:mr-4 flex items-center justify-center shrink-0">
+                            <span class="text-primary font-bold text-lg sm:text-xl">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">María Rodríguez</h4>
+                            <p class="text-gold text-xs sm:text-sm">Coral Gables, FL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="text-gold mb-3 sm:mb-4 text-sm sm:text-base">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">"Contratamos a Jarkitek para
+                        remodelar nuestra oficina y el resultado superó nuestras expectativas. Cumplieron con el plazo y
+                        presupuesto acordados."</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold mr-3 sm:mr-4 flex items-center justify-center shrink-0">
+                            <span class="text-primary font-bold text-lg sm:text-xl">JM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">Juan Méndez</h4>
+                            <p class="text-gold text-xs sm:text-sm">Brickell, Miami</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-lg" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="text-gold mb-3 sm:mb-4 text-sm sm:text-base">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">"La ampliación de nuestra casa fue
+                        un proyecto complejo, pero el equipo de Jarkitek lo manejó con gran profesionalismo. Estamos muy
+                        satisfechos."</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold mr-3 sm:mr-4 flex items-center justify-center shrink-0">
+                            <span class="text-primary font-bold text-lg sm:text-xl">LT</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm sm:text-base">Laura Torres</h4>
+                            <p class="text-gold text-xs sm:text-sm">Miami Beach, FL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 sm:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-primary rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl relative">
+                <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center relative z-10">
+                    <div class="p-6 sm:p-8 md:p-12" data-aos="fade-right">
+                        <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">¿Listo para
+                            comenzar?</span>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4 sm:mb-6">Hagamos
+                            realidad su próximo proyecto</h2>
+                        <p class="text-white/90 text-base sm:text-lg mb-6 sm:mb-8">Contáctenos hoy mismo para una
+                            consulta gratuita y descubra cómo podemos ayudarle a transformar sus ideas en realidad.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contacto"
+                                class="inline-block bg-gold hover:bg-gold-light text-primary font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                                <i class="fas fa-phone-alt mr-2"></i>Contáctenos
+                            </a>
+                            <a href="tel:+13051234567"
+                                class="inline-block bg-transparent border-2 border-white hover:border-gold text-white hover:text-gold font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 text-sm sm:text-base">
+                                <i class="fas fa-phone mr-2"></i>(305) 123-4567
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative h-64 sm:h-80 lg:h-full min-h-[250px] lg:min-h-[350px]" data-aos="fade-left">
+                        <img src="https://placehold.co/500x700" alt="Proyecto Destacado"
+                            class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent lg:block hidden">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 sm:py-20 bg-light-gray relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
+                <span class="text-gold font-semibold uppercase tracking-wider text-sm sm:text-base">Póngase en
+                    contacto</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-4">Contáctenos
+                </h2>
+                <div class="w-16 sm:w-24 h-1 bg-gold mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Estamos listos para hacer
+                    realidad su próximo proyecto. Contáctenos para una consulta gratuita.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl" data-aos="fade-right">
+                    <h3 class="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt text-gold mr-3"></i>Información de Contacto
+                    </h3>
+
+                    <div class="space-y-6 sm:space-y-8">
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-map-marker-alt text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-base sm:text-lg">Dirección</h4>
+                                <p class="text-gray-600 text-sm sm:text-base">11262 SW 159 pl, Miami, Florida</p>
+                                <a href="https://maps.app.goo.gl/E3kvRHphfzbFqJsV7"
+                                    class="text-gold hover:text-primary-light text-xs sm:text-sm mt-1 inline-block">Ver
+                                    en Google Maps</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-phone text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-base sm:text-lg">Teléfono</h4>
+                                <p class="text-gray-600 text-sm sm:text-base">(305) 123-4567</p>
+                                <a href="tel:+13051234567"
+                                    class="text-gold hover:text-primary-light text-xs sm:text-sm mt-1 inline-block">Llamar
+                                    ahora</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-envelope text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-base sm:text-lg">Correo Electrónico</h4>
+                                <p class="text-gray-600 text-sm sm:text-base">info@jarkitek.com</p>
+                                <a href="mailto:info@jarkitek.com"
+                                    class="text-gold hover:text-primary-light text-xs sm:text-sm mt-1 inline-block">Enviar
+                                    email</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center mr-3 sm:mr-4 shrink-0">
+                                <i class="fas fa-clock text-gold text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary text-base sm:text-lg">Horario</h4>
+                                <p class="text-gray-600 text-sm sm:text-base">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                <p class="text-gray-600 text-sm sm:text-base">Sábado: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 sm:mt-10">
+                        <h4 class="font-bold text-primary mb-3 sm:mb-4 text-base sm:text-lg">Síguenos en redes sociales
+                        </h4>
+                        <div class="flex space-x-3 sm:space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition duration-300 shadow-md">
+                                <i class="fab fa-facebook-f text-base sm:text-lg"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition duration-300 shadow-md">
+                                <i class="fab fa-instagram text-base sm:text-lg"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition duration-300 shadow-md">
+                                <i class="fab fa-linkedin-in text-base sm:text-lg"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-gold hover:bg-gold hover:text-primary transition duration-300 shadow-md">
+                                <i class="fab fa-twitter text-base sm:text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-100" data-aos="fade-left">
+                    <h3 class="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6 flex items-center">
+                        <i class="fas fa-paper-plane text-gold mr-3"></i>Envíenos un mensaje
+                    </h3>
+
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                            <div>
+                                <label for="name"
+                                    class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Nombre Completo
+                                    *</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-sm sm:text-base"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label for="email"
+                                    class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Correo Electrónico
+                                    *</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-sm sm:text-base"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 sm:mb-6">
+                            <label for="phone"
+                                class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Teléfono</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-sm sm:text-base">
+                        </div>
+
+                        <div class="mb-4 sm:mb-6">
+                            <label for="service"
+                                class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Servicio de interés
+                                *</label>
+                            <select id="service" name="service"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-sm sm:text-base"
+                                required>
+                                <option value="">Seleccione un servicio</option>
+                                <option value="residencial">Construcción Residencial</option>
+                                <option value="remodelacion">Remodelación Interior</option>
+                                <option value="comercial">Construcción Comercial</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4 sm:mb-6">
+                            <label for="message"
+                                class="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Mensaje *</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-sm sm:text-base"
+                                required></textarea>
+                        </div>
+
+                        <div class="mb-4 sm:mb-6">
+                            <label class="flex items-center">
+                                <input type="checkbox"
+                                    class="form-checkbox h-4 w-4 sm:h-5 sm:w-5 text-primary rounded focus:ring-primary"
+                                    required>
+                                <span class="ml-2 text-gray-700 text-xs sm:text-sm">Acepto la política de privacidad y
+                                    términos de servicio *</span>
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 sm:py-4 px-6 rounded-lg transition duration-300 flex items-center justify-center shadow-lg text-sm sm:text-base">
+                            <i class="fas fa-paper-plane mr-2"></i>Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="h-72 sm:h-96 bg-gray-200">
+        <div class="w-full h-full">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.5347581964393!2d-80.4573146255416!3d25.66391081264071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9c1d8a87fcf3f%3A0x87b4590110ba65ca!2s11262%20SW%20159th%20Pl%2C%20Miami%2C%20FL%2033196%2C%20EE.%20UU.!5e1!3m2!1ses!2sco!4v1743781054619!5m2!1ses!2sco"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 sm:pt-16 pb-6 sm:pb-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+        <div class="wave-divider-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="#f8f9fa">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z">
+                </path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
+                <div>
+                    <img src="/placeholder.svg?height=80&width=160" alt="Jarkitek LLC Logo"
+                        class="h-12 sm:h-16 mb-4 sm:mb-6">
+                    <p class="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">Con más de 7 años de experiencia,
+                        ofrecemos servicios profesionales de construcción y remodelación en Miami y toda Florida.</p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-gold transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-gold transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-gold transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-gold transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gold">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="#inicio"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Inicio</a></li>
+                        <li><a href="#servicios"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Servicios</a></li>
+                        <li><a href="#nosotros"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Nosotros</a></li>
+                        <li><a href="#proyectos"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Proyectos</a></li>
+                        <li><a href="#contacto"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gold">Servicios</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Construcción Residencial</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Remodelación Interior</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Construcción Comercial</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Diseño Arquitectónico</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-gold transition duration-300 flex items-center text-sm sm:text-base"><i
+                                    class="fas fa-chevron-right mr-2 text-xs"></i>Consultoría</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gold">Contáctenos</h4>
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start text-sm sm:text-base">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold"></i>
+                            <span>11262 SW 159 pl, Miami, Florida</span>
+                        </li>
+                        <li class="flex items-start text-sm sm:text-base">
+                            <i class="fas fa-phone mt-1 mr-3 text-gold"></i>
+                            <span>(305) 123-4567</span>
+                        </li>
+                        <li class="flex items-start text-sm sm:text-base">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gold"></i>
+                            <span>info@jarkitek.com</span>
+                        </li>
+                        <li class="flex items-start text-sm sm:text-base">
+                            <i class="fas fa-clock mt-1 mr-3 text-gold"></i>
+                            <span>Lun-Vie: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-6 sm:pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0 text-sm sm:text-base">© 2025 Jarkitek LLC. Todos los derechos
+                        reservados.</p>
+                    <div>
+                        <a href="#"
+                            class="text-gray-400 hover:text-gold transition duration-300 mx-2 text-xs sm:text-sm">Términos
+                            y Condiciones</a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-gold transition duration-300 mx-2 text-xs sm:text-sm">Política
+                            de Privacidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top"
+        class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-10 h-10 sm:w-14 sm:h-14 bg-gold text-primary rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 hover:scale-110 opacity-0 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile' // Disable on mobile devices for better performance
+            });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const backToTop = document.getElementById('back-to-top');
+            const navbar = document.getElementById('navbar');
+
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                    if (window.scrollY === 0) {
+                        navbar.classList.add('bg-transparent');
+                    }
+                }
+
+                // Back to top button
+                if (window.scrollY > 300) {
+                    backToTop.classList.remove('opacity-0');
+                    backToTop.classList.add('opacity-100');
+                } else {
+                    backToTop.classList.remove('opacity-100');
+                    backToTop.classList.add('opacity-0');
+                }
+            });
+
+            // Add bg-primary initially if not at the top
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.add('bg-transparent');
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+
+            const animateCounter = (counter, target) => {
+                let count = 0;
+                const speed = 2000 / target; // Adjust animation speed based on target value
+
+                const updateCount = () => {
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        count += increment;
+                        counter.textContent = Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCount();
+            };
+
+            // Trigger counter animation when in viewport
+            const observeCounters = () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = parseInt(entry.target.textContent);
+                            animateCounter(entry.target, target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                counters.forEach(counter => {
+                    observer.observe(counter);
+                });
+            };
+
+            // Initialize counter animation
+            if (counters.length > 0) {
+                observeCounters();
+            }
+        });
+    </script>
+</body>
+
+</html>
